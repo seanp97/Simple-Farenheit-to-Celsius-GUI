@@ -21,8 +21,11 @@ class TkinterGUI:
 
     def FarenToCels(self):
          self.getValue = self.entryOne.get()
-         FarCelsEquation = float(self.getValue)
-         FarCelsEquation = ((FarCelsEquation -32) * 5) / 9
-         self.resultLabel.configure(text=FarCelsEquation)
+         try:
+               FarCelsEquation = float(self.getValue)
+               FarCelsEquation = ((FarCelsEquation -32) * 5) / 9
+               self.resultLabel.configure(text=FarCelsEquation)
+         except:
+               self.resultLabel.configure(text="An error occured")
     
 MyNewGUI = TkinterGUI("Farenheit to Celsius GUI", 1000, 500)
